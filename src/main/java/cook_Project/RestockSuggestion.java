@@ -1,9 +1,9 @@
 package cook_Project;
 
 public class RestockSuggestion {
-    private String ingredientId;
-    private int suggestedQuantity;
-    private PriceQuote priceQuote;
+    private final String ingredientId;
+    private final int suggestedQuantity;
+    private final PriceQuote priceQuote;
 
     public RestockSuggestion(String ingredientId, int suggestedQuantity, PriceQuote priceQuote) {
         this.ingredientId = ingredientId;

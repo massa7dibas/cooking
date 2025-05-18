@@ -3,10 +3,10 @@ package cook_Project;
 import java.time.ZonedDateTime;
 
 public class Task {
-    private String taskId;
-    private String description;
-    private int expertiseRequired;
-    private ZonedDateTime scheduledTime;
+    private final String taskId;
+    private final String description;
+    private final int expertiseRequired;
+    private final ZonedDateTime scheduledTime;
     private String assignedChefId;
     public Task(String taskId, String description, int expertiseRequired, ZonedDateTime scheduledTime,String assignedChefId) {
         this.taskId = taskId;

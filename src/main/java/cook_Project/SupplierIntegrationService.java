@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SupplierIntegrationService {
-    private static List<SupplierAPIClient> clients = new ArrayList<>();
+    private static final List<SupplierAPIClient> clients = new ArrayList<>();
 
     public static void registerClient(SupplierAPIClient client) {
         clients.add(client);

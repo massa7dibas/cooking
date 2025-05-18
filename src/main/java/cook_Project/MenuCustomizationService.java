@@ -29,7 +29,7 @@ public class MenuCustomizationService {
         for (Ingredient i : ingredients) {
             if (!i.isAvailable() || !new HashSet<>(i.getDietaryTags()).containsAll(restrictions)) {
                 Ingredient substitute = findSubstitute(i, restrictions, all);
-                subs.add(new Substitution(i, substitute));
+                subs.add(new Substitution(i));
             }
         }
         return subs;

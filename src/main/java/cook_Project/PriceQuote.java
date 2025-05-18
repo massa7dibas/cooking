@@ -1,9 +1,9 @@
 package cook_Project;
 
 public class PriceQuote {
-    private String ingredientId;
-    private String supplierId;
-    private double price;
+    private final String ingredientId;
+    private final String supplierId;
+    private final double price;
 
     public PriceQuote(String ingredientId, String supplierId, double price) {
         this.ingredientId = ingredientId;

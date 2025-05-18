@@ -19,7 +19,9 @@ public class SupplierMenu {
                     break;
                 case 2:
                     PurchaseOrder po = PurchaseOrderService.createPurchaseOrder(InventoryService.suggestRestock());
-                    PurchaseOrderService.sendOrder(po);
+                    if (po != null) {
+                        PurchaseOrderService.sendOrder(po);
+                    }
                     System.out.println("PO Sent: " + po.getOrderId());
                     break;
                 case 0:

@@ -3,11 +3,11 @@ package cook_Project;
 import java.util.List;
 
 public class Recipe {
-    private String recipeId;
-    private String name;
-    private int prepTime;
-    private List ingredients;
-    private List dietaryTags;
+    private final String recipeId;
+    private final String name;
+    private final int prepTime;
+    private final List ingredients;
+    private final List dietaryTags;
     public Recipe(String recipeId, String name, int prepTime, List<String> ingredients, List<String> dietaryTags) {
         this.recipeId = recipeId;
         this.name = name;
@@ -28,10 +28,10 @@ public class Recipe {
         return prepTime;
     }
 
-    public List<Ingredient> getIngredients() {
+    public List getIngredients() {
         return ingredients;
     }
 
-    public List<String> getDietaryTags() {
+    public List getDietaryTags() {
         return dietaryTags;
     }}
