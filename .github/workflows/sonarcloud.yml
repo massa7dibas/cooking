@@ -32,9 +32,10 @@ jobs:
           key: ${{ runner.os }}-sonar
 
       - name: Build and analyze with Maven
-        run: mvn clean verify sonar:sonar \
-          -Dsonar.projectKey=massa7dibas_massa7dibas \
-          -Dsonar.organization=massa7dibas \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-          -Dsonar.qualitygate.wait=true
+        run: |
+          mvn clean verify sonar:sonar \
+            -Dsonar.projectKey=massa7dibas_massa7dibas \
+            -Dsonar.organization=massa7dibas \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+            -Dsonar.qualitygate.wait=true
