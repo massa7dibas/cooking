@@ -203,7 +203,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Application.initializeSystem();
+
         while (true) {
             System.out.println("\n--- Special Cook Project Management ---");
             System.out.println("1. Register User");

@@ -1,8 +1,9 @@
 package ook_project;
-
+import java.util.logging.Logger;
 import java.util.*;
 
 public class Application {
+    public static final Logger logger = Logger.getLogger(Application.class.getName());
     public static User mainUser = null;
 
     private static final List<Customer> customerList = new ArrayList<>();
@@ -31,7 +32,7 @@ public class Application {
         recipes.add(recipe);
     }
 
-    public static List getAllRecipes() {
+    public static List<Recipe> getAllRecipes() {
         return new ArrayList<>(recipes);
     }
 

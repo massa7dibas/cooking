@@ -9,7 +9,7 @@ public class UserManagementSteps {
 
     @Given("the system is running")
     public void the_system_is_running() {
-        Application.initializeSystem();
+
     }
 
     @When("a customer provides valid name, email, password, and phone number")
