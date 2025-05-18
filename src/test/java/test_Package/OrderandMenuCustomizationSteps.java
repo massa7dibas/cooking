@@ -1,11 +1,13 @@
 package test_Package;
 
 import cook_Project.Ingredient;
-import cook_Project.IngredientRepository;
 import cook_Project.MenuCustomizationService;
 import cook_Project.Substitution;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+
+import static cook_Project.Application.addIngredient;
+import static cook_Project.Application.getAllIngredients;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +33,7 @@ public class OrderandMenuCustomizationSteps {
             if (tagsValue != null && !tagsValue.isEmpty()) {
                 tags.addAll(Arrays.asList(tagsValue.split(",\\s*")));
             }
-            IngredientRepository.addIngredient(new Ingredient(id, name, available, tags));
+            addIngredient(new Ingredient(id, name, available, tags));
         }
     }
 
@@ -46,7 +48,7 @@ public class OrderandMenuCustomizationSteps {
         selectedIngredients = new ArrayList<>();
         for (List<String> row : rows) {
             String ingId = row.get(0);
-            for (Ingredient i : IngredientRepository.getAllIngredients()) {
+            for (Ingredient i : getAllIngredients()) {
                 if (i.getId().equals(ingId)) {
                     selectedIngredients.add(i);
                     break;
@@ -82,7 +84,7 @@ public class OrderandMenuCustomizationSteps {
     @Given("the customer {string} has selected unavailable ingredient {string}")
     public void the_customer_has_selected_unavailable_ingredient(String id, String name) {
         selectedIngredients = new ArrayList<>();
-        for (Ingredient i : IngredientRepository.getAllIngredients()) {
+        for (Ingredient i : getAllIngredients()) {
             if (i.getName().equals(name)) {
                 selectedIngredients.add(i);
             }
@@ -113,13 +115,12 @@ public class OrderandMenuCustomizationSteps {
         }
         assertNotNull("No substitution found for " + originalName, sub);
 
-//        assertEquals(expectedSubstitute, sub.getSubstitute().getName());
     }
 
     @Given("the customer {string} has selected conflicting ingredient {string}")
     public void the_customer_has_selected_conflicting_ingredient(String id, String name) {
         selectedIngredients = new ArrayList<>();
-        for (Ingredient i : IngredientRepository.getAllIngredients()) {
+        for (Ingredient i : getAllIngredients()) {
             if (i.getName().equals(name)) {
                 selectedIngredients.add(i);
             }

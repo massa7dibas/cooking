@@ -3,6 +3,8 @@ package test_Package;
 import cook_Project.*;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+
+import static cook_Project.Application.addItem;
 import static org.junit.Assert.*;
 import java.util.*;
 
@@ -17,7 +19,7 @@ public class InventoryandSupplierManagementStep {
             int quantityOnHand = Integer.parseInt(row.get("quantityOnHand"));
             int reorderThreshold = Integer.parseInt(row.get("reorderThreshold"));
             int reorderQuantity = Integer.parseInt(row.get("reorderQuantity"));
-            InventoryRepository.addItem(new InventoryItem(ingredientId, quantityOnHand, reorderThreshold, reorderQuantity));
+            addItem(new InventoryItem(ingredientId, quantityOnHand, reorderThreshold, reorderQuantity));
         }
     }
 
@@ -40,7 +42,7 @@ public class InventoryandSupplierManagementStep {
 
     @When("the system checks inventory levels")
     public void the_system_checks_inventory_levels() {
-        suggestions = InventoryService.suggestRestock(new ArrayList<>());
+        suggestions = InventoryService.suggestRestock();
     }
 
     @Then("it should suggest restock for ingredient {string} with quantity {int} and best price from supplier {string}")
