@@ -2,43 +2,45 @@ package ook_project;
 
 import java.util.*;
 
+import static ook_project.Application.logger;
+
 public class ChefMenu {
     public static void show(Scanner scanner) {
         while (true) {
-            System.out.println("\n--- Chef Menu ---");
-            System.out.println("1. View Assigned Tasks");
-            System.out.println("2. View All Tasks");
-            System.out.println("3. View Notifications");
-            System.out.println("4. Edit Profile");
-            System.out.println("0. Logout");
-            System.out.print("Choose an option: ");
+            logger.info("\n--- Chef Menu ---");
+            logger.info("1. View Assigned Tasks");
+            logger.info("2. View All Tasks");
+            logger.info("3. View Notifications");
+            logger.info("4. Edit Profile");
+            logger.info("0. Logout");
+            logger.info("Choose an option: ");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
                     for (Task t : Application.getAllTasks()) {
                         if (t.getAssignedChefId() != null && t.getAssignedChefId().equals(Application.mainUser.getId())) {
-                            System.out.println(t.getTaskId() + " - " + t.getDescription() + " Scheduled: " + t.getScheduledTime());
+                            logger.info(t.getTaskId() + " - " + t.getDescription() + " Scheduled: " + t.getScheduledTime());
                         }
                     }
                     break;
                 case 2:
                     for (Task t : Application.getAllTasks()) {
-                        System.out.println(t.getTaskId() + ": " + t.getDescription() + " Assigned Chef: " + t.getAssignedChefId());
+                        logger.info(t.getTaskId() + ": " + t.getDescription() + " Assigned Chef: " + t.getAssignedChefId());
                     }
                     break;
                 case 3:
                     for (Notification n : NotificationService.getNotifications()) {
                         if (n.getChefName().equals(Application.mainUser.getName())) {
-                            System.out.println("From: " + n.getChefName() + " - " + n.getMessage());
+                            logger.info("From: " + n.getChefName() + " - " + n.getMessage());
                         }
                     }
                     break;
                 case 4:
-                    System.out.print("New Name: "); String nn = scanner.nextLine();
-                    System.out.print("New Email: "); String ne = scanner.nextLine();
-                    System.out.print("New Phone: "); String np = scanner.nextLine();
+                    logger.info("New Name: "); String nn = scanner.nextLine();
+                    logger.info("New Email: "); String ne = scanner.nextLine();
+                    logger.info("New Phone: "); String np = scanner.nextLine();
                     Application.updateUserProfile(nn, ne, np);
-                    System.out.println(Application.getProfileUpdateMessage());
+                    logger.info(Application.getProfileUpdateMessage());
                     break;
                 case 0:
                     return;

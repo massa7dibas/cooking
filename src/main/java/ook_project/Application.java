@@ -115,7 +115,7 @@ public class Application {
             case "admin" -> adminList.add(new Admin(id, name, email, password, phone));
             case "chef" -> chefList.add(new Chef(id, name, email, password, phone, 0, 0));
             case "kitchenManager" -> kitchenManagerList.add(new KitchenManager(id, name, email, password, phone));
-            default -> System.out.println("Invalid role");
+            default -> logger.info("Invalid role");
         }
 
         confirmationMessage = "Registration Successful";

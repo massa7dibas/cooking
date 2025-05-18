@@ -6,6 +6,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+import static ook_project.Application.logger;
+
 public class EmailService {
     public static void sendInvoice(Invoice invoice, String email) {
         String msg="Your order "+invoice.getOrderId()+" status is : "+invoice.getStatus()+" with total : "
@@ -43,10 +45,10 @@ public class EmailService {
 
             Transport.send(message);
 
-            System.out.println("Email sent successfully to " + recipientEmail);
+            logger.info("Email sent successfully to " + recipientEmail);
         } catch (MessagingException e) {
 
-            System.out.println("Failed to send email.");
+            logger.info("Failed to send email.");
         }
     }
 
