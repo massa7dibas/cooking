@@ -1,6 +1,6 @@
 package test_Package;
 
-import cook_Project.*;
+import ook_project.*;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,8 +10,8 @@ import org.junit.Assert;
 import java.util.List;
 import java.util.Map;
 
-import static cook_Project.Application.addRecipe;
-import static cook_Project.Application.clearRecipes;
+import static ook_project.Application.addRecipe;
+import static ook_project.Application.clearRecipes;
 
 public class AIAssistanceSteps {
     private List<String> availableIngredients;

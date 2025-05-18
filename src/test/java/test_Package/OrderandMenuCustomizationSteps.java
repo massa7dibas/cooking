@@ -1,13 +1,13 @@
 package test_Package;
 
-import cook_Project.Ingredient;
-import cook_Project.MenuCustomizationService;
-import cook_Project.Substitution;
+import ook_project.Ingredient;
+import ook_project.MenuCustomizationService;
+import ook_project.Substitution;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 
-import static cook_Project.Application.addIngredient;
-import static cook_Project.Application.getAllIngredients;
+import static ook_project.Application.addIngredient;
+import static ook_project.Application.getAllIngredients;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Arrays;

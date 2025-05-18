@@ -1,6 +1,6 @@
 package test_Package;
 
-import cook_Project.Application;
+import ook_project.Application;
 import io.cucumber.java.en.*;
 
 import static org.junit.Assert.*;
@@ -60,7 +60,7 @@ public class UserManagementSteps {
 
     @Then("the system should identify the role and redirect accordingly")
     public void the_system_should_identify_the_role_and_redirect_accordingly() {
-        assertEquals("Customer", Application.main_User.getRole());
+        assertEquals("Customer", Application.mainUser.getRole());
     }
 
     @Then("the system should show an {string} message")

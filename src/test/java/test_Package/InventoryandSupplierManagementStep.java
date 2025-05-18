@@ -1,10 +1,10 @@
 package test_Package;
 
-import cook_Project.*;
+import ook_project.*;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 
-import static cook_Project.Application.addItem;
+import static ook_project.Application.addItem;
 import static org.junit.Assert.*;
 import java.util.*;
 

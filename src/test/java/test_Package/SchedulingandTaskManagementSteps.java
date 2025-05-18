@@ -1,11 +1,11 @@
 package test_Package;
-import static cook_Project.Application.*;
+import static ook_project.Application.*;
 import static org.junit.Assert.*;
-import cook_Project.Chef;
-import cook_Project.Task;
-import cook_Project.SchedulerService;
-import cook_Project.Notification;
-import cook_Project.NotificationService;
+import ook_project.Chef;
+import ook_project.Task;
+import ook_project.SchedulerService;
+import ook_project.Notification;
+import ook_project.NotificationService;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;

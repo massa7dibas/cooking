@@ -1,10 +1,10 @@
 package test_Package;
 
-import cook_Project.Allergy;
-import cook_Project.Customer;
-import cook_Project.FoodItem;
-import cook_Project.Order;
-import cook_Project.MealPlan;
+import ook_project.Allergy;
+import ook_project.Customer;
+import ook_project.FoodItem;
+import ook_project.Order;
+import ook_project.MealPlan;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 

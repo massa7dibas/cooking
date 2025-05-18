@@ -1,6 +1,6 @@
 package test_Package;
 
-import cook_Project.*;
+import ook_project.*;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import static org.junit.Assert.*;
