@@ -1,5 +1,6 @@
 package cook_Project;
 
+import java.security.SecureRandom;
 import java.util.*;
 
 public class CustomerMenu {
@@ -34,8 +35,9 @@ public class CustomerMenu {
                     System.out.print("Enter Food Item Name: "); String fname = scanner.nextLine();
                     System.out.print("Enter Ingredient IDs (comma): "); List<String> ing = Arrays.asList(scanner.nextLine().split(","));
                     System.out.print("Enter Price: "); double price = Double.parseDouble(scanner.nextLine());
-                    String oid = "ORD" + new Random().nextInt(1000);
-                    FoodItem fi = new FoodItem("FI" + new Random().nextInt(1000), fname, ing, price);
+                    SecureRandom secureRandom = new SecureRandom();
+                    String oid = "ORD" + secureRandom.nextInt(1_000_000);
+                    FoodItem fi = new FoodItem("FI-" + UUID.randomUUID(), fname, ing, price);
                     Order order = new Order(oid, List.of(fi), price, "NEW");
                     ((Customer)Application.main_User).addOrder(order);
                     System.out.println("Order Placed: " + order.getOrderId());
