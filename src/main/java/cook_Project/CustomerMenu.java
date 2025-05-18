@@ -36,7 +36,7 @@ public class CustomerMenu {
                     System.out.print("Enter Price: "); double price = Double.parseDouble(scanner.nextLine());
                     String oid = "ORD" + new Random().nextInt(1000);
                     FoodItem fi = new FoodItem("FI" + new Random().nextInt(1000), fname, ing, price);
-                    Order order = new Order(oid, new Date(), List.of(fi), price, "NEW");
+                    Order order = new Order(oid, List.of(fi), price, "NEW");
                     ((Customer)Application.main_User).addOrder(order);
                     System.out.println("Order Placed: " + order.getOrderId());
                     break;

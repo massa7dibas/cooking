@@ -2,6 +2,7 @@
 package cook_Project;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static cook_Project.Application.getAllIngredients;
@@ -26,7 +27,7 @@ public class MenuCustomizationService {
         List<Ingredient> all = getAllIngredients();
         List<Substitution> subs = new ArrayList<>();
         for (Ingredient i : ingredients) {
-            if (!i.isAvailable() || !i.getDietaryTags().containsAll(restrictions)) {
+            if (!i.isAvailable() || !new HashSet<>(i.getDietaryTags()).containsAll(restrictions)) {
                 Ingredient substitute = findSubstitute(i, restrictions, all);
                 subs.add(new Substitution(i, substitute));
             }
@@ -37,7 +38,7 @@ public class MenuCustomizationService {
     private static Ingredient findSubstitute(Ingredient original, List<String> restrictions, List<Ingredient> all) {
         for (Ingredient candidate : all) {
             if (candidate.isAvailable() && !candidate.getId().equals(original.getId())
-                    && candidate.getDietaryTags().containsAll(restrictions)) {
+                    && new HashSet<>(candidate.getDietaryTags()).containsAll(restrictions)) {
                 return candidate;
             }
         }

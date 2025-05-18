@@ -1,8 +1,8 @@
 package cook_Project;
 
 public class Allergy {
-    private String type;
-    private String description;
+    private final String type;
+    private final String description;
 
     public Allergy(String type, String description) {
         this.type = type;

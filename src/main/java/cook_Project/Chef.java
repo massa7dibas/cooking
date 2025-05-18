@@ -2,8 +2,8 @@ package cook_Project;
 
 public class Chef extends User {
 
-    private int experienceLevel;
-    private int currentLoad;
+    private final int experienceLevel;
+    private final int currentLoad;
     public Chef(String id, String name, String email, String password, String phoneNumber, int experienceLevel, int currentLoad) {
         super(id, name, email, password, phoneNumber, "Chef");
         this .currentLoad=currentLoad;

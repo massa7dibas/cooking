@@ -3,15 +3,13 @@ package cook_Project;
 import java.util.*;
 
 public class Order {
-    private String orderId;
-    private Date orderDate;
-    private List<FoodItem> items;
-    private double totalPrice;
-    private String status;
+    private final String orderId;
+    private final List<FoodItem> items;
+    private final double totalPrice;
+    private final String status;
 
-    public Order(String orderId, Date orderDate, List<FoodItem> items, double totalPrice, String status) {
+    public Order(String orderId, List<FoodItem> items, double totalPrice, String status) {
         this.orderId = orderId;
-        this.orderDate = orderDate;
         this.items = items;
         this.totalPrice = totalPrice;
         this.status = status;
@@ -19,10 +17,6 @@ public class Order {
 
     public String getOrderId() {
         return orderId;
-    }
-
-    public Date getOrderDate() {
-        return orderDate;
     }
 
     public List<FoodItem> getItems() {
@@ -37,7 +31,4 @@ public class Order {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

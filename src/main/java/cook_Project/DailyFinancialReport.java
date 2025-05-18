@@ -1,9 +1,9 @@
 package cook_Project;
 
 public class DailyFinancialReport {
-    private double totalRevenue;
-    private int numberOfOrders;
-    private double averageOrderValue;
+    private final double totalRevenue;
+    private final int numberOfOrders;
+    private final double averageOrderValue;
 
     public DailyFinancialReport(double totalRevenue, int numberOfOrders) {
         this.totalRevenue = totalRevenue;

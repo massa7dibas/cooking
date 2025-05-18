@@ -3,10 +3,10 @@ package cook_Project;
 import java.util.List;
 
 public class Ingredient {
-    private String id;
-    private String name;
-    private boolean available;
-    private List<String> dietaryTags;
+    private final String id;
+    private final String name;
+    private final boolean available;
+    private final List<String> dietaryTags;
 
     public Ingredient(String id, String name, boolean available, List<String> dietaryTags) {
         this.id = id;

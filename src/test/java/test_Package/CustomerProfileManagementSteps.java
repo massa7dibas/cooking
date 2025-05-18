@@ -67,7 +67,7 @@ public class CustomerProfileManagementSteps {
             for (String item : row.get("items").split(",\\s*")) {
                 items.add(new FoodItem(UUID.randomUUID().toString(), item, Collections.emptyList(), 0.0));
             }
-            customer.addOrder(new Order(row.get("orderId"), date, items, 0.0, ""));
+            customer.addOrder(new Order(row.get("orderId"), items, 0.0, ""));
         }
         customers.put(id, customer);
     }
@@ -101,7 +101,7 @@ public class CustomerProfileManagementSteps {
             for (String item : row.get("items").split(",\\s*")) {
                 items.add(new FoodItem(UUID.randomUUID().toString(), item, Collections.emptyList(), 0.0));
             }
-            customer.addOrder(new Order(row.get("orderId"), date, items, 0.0, ""));
+            customer.addOrder(new Order(row.get("orderId"), items, 0.0, ""));
         }
         customers.put(id, customer);
     }
@@ -128,7 +128,7 @@ public class CustomerProfileManagementSteps {
         Customer customer = customers.get(id);
         if (customer == null) {
             customer = new Customer(id, "Name", id + "@example.com", "pass", "000", "");
-            customer.addOrder(new Order("O0", new Date(), Collections.emptyList(), 0.0, ""));
+            customer.addOrder(new Order("O0", Collections.emptyList(), 0.0, ""));
             customers.put(id, customer);
         }
         displayedOrders = customer.getOrderHistory();

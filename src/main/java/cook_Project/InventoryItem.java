@@ -2,10 +2,10 @@ package cook_Project;
 
 
 public class InventoryItem {
-    private String ingredientId;
-    private int quantityOnHand;
-    private int reorderThreshold;
-    private int reorderQuantity;
+    private final String ingredientId;
+    private final int quantityOnHand;
+    private final int reorderThreshold;
+    private final int reorderQuantity;
 
     public InventoryItem(String ingredientId, int quantityOnHand, int reorderThreshold, int reorderQuantity) {
         this.ingredientId = ingredientId;
@@ -20,10 +20,6 @@ public class InventoryItem {
 
     public int getQuantityOnHand() {
         return quantityOnHand;
-    }
-
-    public void setQuantityOnHand(int quantityOnHand) {
-        this.quantityOnHand = quantityOnHand;
     }
 
     public int getReorderThreshold() {

@@ -26,7 +26,7 @@ public class BillingSystemSteps {
             }
             total += qty * price;
         }
-        order = new Order(UUID.randomUUID().toString(), new Date(), items, total, "Completed");
+        order = new Order(UUID.randomUUID().toString(), items, total, "Completed");
     }
 
     @When("the order is completed")
@@ -80,7 +80,7 @@ public class BillingSystemSteps {
         List<Order> orders = new ArrayList<>();
         for (Map<String, String> row : dataTable.asMaps(String.class, String.class)) {
             double total = Double.parseDouble(row.get("Total"));
-            orders.add(new Order(UUID.randomUUID().toString(), new Date(), Collections.emptyList(), total, "Completed"));
+            orders.add(new Order(UUID.randomUUID().toString(), Collections.emptyList(), total, "Completed"));
         }
         report = FinancialReportService.generateDailyReport(orders);
     }

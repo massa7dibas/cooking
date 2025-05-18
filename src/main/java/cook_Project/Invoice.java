@@ -3,12 +3,11 @@ package cook_Project;
 import java.util.*;
 
 public class Invoice {
-    private String invoiceId;
-    private String orderId;
-    private List<InvoiceItem> items;
-    private double total;
-    private String status;
-    private Date issueDate;
+    private final String invoiceId;
+    private final String orderId;
+    private final List<InvoiceItem> items;
+    private final double total;
+    private final String status;
 
     public Invoice(String orderId, List<InvoiceItem> items) {
         this.invoiceId = UUID.randomUUID().toString();
@@ -16,7 +15,6 @@ public class Invoice {
         this.items = items;
         this.total = items.stream().mapToDouble(InvoiceItem::getTotal).sum();
         this.status = "Issued";
-        this.issueDate = new Date();
     }
 
     public String getInvoiceId() { return invoiceId; }
@@ -24,5 +22,4 @@ public class Invoice {
     public List<InvoiceItem> getItems() { return items; }
     public double getTotal() { return total; }
     public String getStatus() { return status; }
-    public Date getIssueDate() { return issueDate; }
 }

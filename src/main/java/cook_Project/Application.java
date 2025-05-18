@@ -5,13 +5,13 @@ import java.util.*;
 public class Application {
     public static User main_User = null;
 
-    private static List<Customer> customerList = new ArrayList<>();
+    private static final List<Customer> customerList = new ArrayList<>();
 
     public static List<Admin> getAdminList() {
         return adminList;
     }
 
-    private static List<Supplier> supplierList = new ArrayList<>();
+    private static final List<Supplier> supplierList = new ArrayList<>();
 
     public static List<Chef> getChefList() {
         return chefList;
@@ -26,12 +26,12 @@ public class Application {
 
 
 
-    private static List recipes = new ArrayList<>();
+    private static final ArrayList<Recipe> recipes = new ArrayList<>();
     public static void addRecipe(Recipe recipe) {
         recipes.add(recipe);
     }
 
-    public static List<Recipe> getAllRecipes() {
+    public static ArrayList<Recipe> getAllRecipes() {
         return new ArrayList<>(recipes);
     }
 
@@ -41,7 +41,7 @@ public class Application {
 
 
 
-    private static List<Ingredient> ingredients = new ArrayList<>();
+    private static final List<Ingredient> ingredients = new ArrayList<>();
 
     public static void addIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);
@@ -52,7 +52,7 @@ public class Application {
     }
 
 
-    private static List<InventoryItem> items = new ArrayList<>();
+    private static final List<InventoryItem> items = new ArrayList<>();
 
     public static void addItem(InventoryItem item) {
         items.add(item);
@@ -62,31 +62,20 @@ public class Application {
         return new ArrayList<>(items);
     }
 
-    public static InventoryItem findByIngredientId(String ingredientId) {
-        for (InventoryItem item : items) {
-            if (item.getIngredientId().equals(ingredientId)) {
-                return item;
-            }
-        }
-        return null;
-    }
 
-
-
-
-    private static List tasks = new ArrayList<>();
+    private static ArrayList<Task> tasks = new ArrayList<>();
     public static void addTask(Task task) { tasks.add(task); }
     public static List<Task> getAllTasks() { return new ArrayList<>(tasks); }
 
     public static void clearTasks() {
-        tasks=new ArrayList();
+        tasks=new ArrayList<>();
     }
 
 
 
-        private static List<Admin> adminList = new ArrayList<>();
-    private static List<Chef> chefList = new ArrayList<>();
-    private static List<KitchenManager> kitchenManagerList = new ArrayList<>();
+        private static final List<Admin> adminList = new ArrayList<>();
+    private static final List<Chef> chefList = new ArrayList<>();
+    private static final List<KitchenManager> kitchenManagerList = new ArrayList<>();
 
     private static String confirmationMessage;
     private static String loginErrorMessage;
@@ -120,16 +109,12 @@ public class Application {
             return;
         }
 
-        if (role.equals("customer")) {
-            customerList.add(new Customer(id, name, email, password, phone, ""));
-        } else if (role.equals("supplier")) {
-            supplierList.add(new Supplier(id, name, email, password, phone));
-        } else if (role.equals("admin")) {
-            adminList.add(new Admin(id, name, email, password, phone));
-        } else if (role.equals("chef")) {
-            chefList.add(new Chef(id, name, email, password, phone, 0,0));
-        } else if (role.equals("kitchenManager")) {
-            kitchenManagerList.add(new KitchenManager(id, name, email, password, phone, ""));
+        switch (role) {
+            case "customer" -> customerList.add(new Customer(id, name, email, password, phone, ""));
+            case "supplier" -> supplierList.add(new Supplier(id, name, email, password, phone));
+            case "admin" -> adminList.add(new Admin(id, name, email, password, phone));
+            case "chef" -> chefList.add(new Chef(id, name, email, password, phone, 0, 0));
+            case "kitchenManager" -> kitchenManagerList.add(new KitchenManager(id, name, email, password, phone));
         }
 
         confirmationMessage = "Registration Successful";

@@ -3,9 +3,9 @@ package cook_Project;
 
 
 public class Notification {
-    private String chefName;
-    private String taskId;
-    private String message;
+    private final String chefName;
+    private final String taskId;
+    private final String message;
     public Notification(String chefName, String taskId, String message) {
         this.chefName = chefName;
         this.taskId = taskId;

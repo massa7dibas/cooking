@@ -2,10 +2,10 @@
 package cook_Project;
 
 public class InvoiceItem {
-    private String name;
-    private int quantity;
-    private double unitPrice;
-    private double total;
+    private final String name;
+    private final int quantity;
+    private final double unitPrice;
+    private final double total;
 
     public InvoiceItem(String name, int quantity, double unitPrice) {
         this.name = name;

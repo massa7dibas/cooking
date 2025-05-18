@@ -45,7 +45,7 @@ public class EmailService {
 
             System.out.println("Email sent successfully to " + recipientEmail);
         } catch (MessagingException e) {
-            e.printStackTrace();
+
             System.out.println("Failed to send email.");
         }
     }

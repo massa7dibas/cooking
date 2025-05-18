@@ -3,9 +3,9 @@ package cook_Project;
 import java.util.*;
 
 public class Customer extends User {
-    private String dietaryPreferences;
-    private List<Allergy> allergies;
-    private List<Order> orderHistory;
+    private final String dietaryPreferences;
+    private final List<Allergy> allergies;
+    private final List<Order> orderHistory;
     private MealPlan mealPlan;
 
     public Customer(String id, String name, String email, String password, String phoneNumber, String dietaryPreferences) {
@@ -36,10 +36,6 @@ public class Customer extends User {
 
     public void addOrder(Order order) {
         this.orderHistory.add(order);
-    }
-
-    public MealPlan getMealPlan() {
-        return mealPlan;
     }
 
     public void setMealPlan(MealPlan mealPlan) {
