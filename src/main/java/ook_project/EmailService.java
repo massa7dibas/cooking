@@ -1,4 +1,3 @@
-
 package ook_project;
 
 import javax.mail.*;
@@ -10,16 +9,14 @@ import static ook_project.Application.logger;
 
 public class EmailService {
     public static void sendInvoice(Invoice invoice, String email) {
-        String msg="Your order "+invoice.getOrderId()+" status is : "+invoice.getStatus()+" with total : "
-                +invoice.getTotal();
-        sendNotification(email,msg);
-
+        String msg = "Your order " + invoice.getOrderId() + " status is : " + invoice.getStatus() + " with total : "
+                + invoice.getTotal();
+        sendNotification(email, msg);
     }
+
     public static void sendNotification(String recipientEmail, String messageText) {
-        final String senderEmail = "masadibas7@gmail.com";
-        final String senderPassword = "izlq lpjl Imax pqlr";
-
-
+        final String senderEmail = System.getenv("EMAIL_SENDER");
+        final String senderPassword = System.getenv("EMAIL_PASSWORD");
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -47,9 +44,7 @@ public class EmailService {
 
             logger.info("Email sent successfully to " + recipientEmail);
         } catch (MessagingException e) {
-
             logger.info("Failed to send email.");
         }
     }
-
 }
