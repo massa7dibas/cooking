@@ -1,4 +1,7 @@
 package ook_project;
+
+import static ook_project.Application.logger;
+
 public class User {
     protected String id;
     protected String name;
@@ -20,10 +23,10 @@ public class User {
 
     public boolean signIn(String enteredEmail, String enteredPassword) {
         if (this.email.equals(enteredEmail) && this.password.equals(enteredPassword)) {
-            System.out.println(role + " " + name + " has signed in.");
+            logger.info(role + " " + name + " has signed in.");
             return true;
         } else {
-            System.out.println("Incorrect email or password.");
+            logger.info("Incorrect email or password.");
             return false;
         }
     }
@@ -32,7 +35,7 @@ public class User {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        System.out.println(role + " profile updated.");
+        logger.info(role + " profile updated.");
     }
 public String getId(){
         return id;

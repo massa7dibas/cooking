@@ -1,4 +1,4 @@
-name: SonarCloud
+name: CI - SonarCloud and Codecov
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build and Analyze on SonarCloud
+    name: Build, Analyze on SonarCloud & Upload Coverage to Codecov
     runs-on: ubuntu-latest
 
     steps:
@@ -31,11 +31,21 @@ jobs:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
 
-      - name: Build and analyze with Maven
-        run: |
-          mvn clean verify sonar:sonar \
-            -Dsonar.projectKey=massa7dibas_massa7dibas \
-            -Dsonar.organization=massa7dibas \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-            -Dsonar.qualitygate.wait=true
+      - name: Build with Maven and run tests
+        run: mvn clean verify
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: target/site/jacoco/jacoco.xml
+          fail_ci_if_error: true
+
+      - name: Analyze on SonarCloud
+        run: mvn sonar:sonar \
+          -Dsonar.projectKey=massa7dibas_massa7dibas \
+          -Dsonar.organization=massa7dibas \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+          -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml \
+          -Dsonar.qualitygate.wait=true

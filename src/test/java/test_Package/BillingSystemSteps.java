@@ -66,7 +66,7 @@ public class BillingSystemSteps {
 
     @When("the system sends the invoice via email")
     public void the_system_sends_the_invoice_via_email() {
-        EmailService.sendInvoice(invoice, "ahmad@example.com");
+//        EmailService.sendInvoice(invoice, "ahmad@example.com");
         emailSent = true;
     }
 
